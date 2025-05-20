@@ -16,4 +16,7 @@ public class ResrvationDto implements Serializable {
     String dateReservation;
     String place;
     double prix;
+    Long idClient;
+    Long idEvenement;
+
 }
