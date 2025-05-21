@@ -40,4 +40,9 @@ public class EvenementController {
         service.delete(id);
         return ResponseEntity.ok().build();
     }
+    @GetMapping("type/{type}")
+    private ResponseEntity<List<EvenementDto>> findAllEvenementsByType(@PathVariable String type) {
+        List<EvenementDto> saved=service.findEvenementByType(type);
+        return ResponseEntity.ok(saved);
+    }
 }

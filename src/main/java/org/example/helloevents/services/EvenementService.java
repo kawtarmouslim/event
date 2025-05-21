@@ -45,6 +45,13 @@ public class EvenementService {
     public void delete( Long id) {
         evenementRepository.deleteById(id);
     }
+    public List<EvenementDto> findEvenementByType(String type) {
+        List<Evenement> evenements=evenementRepository.findEvenementByType(type);
+      return   evenements.stream()
+              .map(evenement -> modelMapper.map(evenement,EvenementDto.class))
+              .toList();
+
+    }
 
 
 }
