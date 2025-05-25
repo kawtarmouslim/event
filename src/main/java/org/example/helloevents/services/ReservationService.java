@@ -13,8 +13,15 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 @Service
-@AllArgsConstructor
+//@AllArgsConstructor
 public class ReservationService {
+    public ReservationService(ResrvationRepository resrvationRepository, ClientRepository clientRepository, EvenementRepository evenementRepository, ModelMapper modelMapper) {
+        this.resrvationRepository = resrvationRepository;
+        this.clientRepository = clientRepository;
+        this.evenementRepository = evenementRepository;
+        this.modelMapper = modelMapper;
+    }
+
     private final ResrvationRepository resrvationRepository;
     private final ClientRepository clientRepository;
     private final EvenementRepository evenementRepository;

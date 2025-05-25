@@ -11,10 +11,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@AllArgsConstructor
+//@AllArgsConstructor
 public class ClientService {
     private final ClientRepository clientRepository;
     private final ModelMapper modelMapper;
+
+    public ClientService(ClientRepository clientRepository, ModelMapper modelMapper) {
+        this.clientRepository = clientRepository;
+        this.modelMapper = modelMapper;
+    }
+
     public ClientDto save(ClientDto clientDto) {
         Client client=modelMapper.map(clientDto,Client.class);
         Client saved =clientRepository.save(client);
