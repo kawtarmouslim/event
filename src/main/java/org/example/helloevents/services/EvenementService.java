@@ -12,8 +12,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
 
 @Service
-@AllArgsConstructor
+//@AllArgsConstructor
 public class EvenementService {
+    public EvenementService(EvenementRepository evenementRepository, ModelMapper modelMapper) {
+        this.evenementRepository = evenementRepository;
+        this.modelMapper = modelMapper;
+    }
+
     private  final EvenementRepository evenementRepository;
     private ModelMapper modelMapper;
     public EvenementDto save( EvenementDto evenementDto) {

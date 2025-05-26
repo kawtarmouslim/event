@@ -2,6 +2,7 @@ package org.example.helloevents.entites;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.example.helloevents.dto.EvenementDto;
@@ -15,6 +16,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Builder
+
 public class Client implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +27,7 @@ public class Client implements UserDetails {
     private String password;
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private List<Resrvation> resrvations;
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
