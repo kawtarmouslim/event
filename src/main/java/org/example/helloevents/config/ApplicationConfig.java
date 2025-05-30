@@ -13,13 +13,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
-//@RequiredArgsConstructor
+@RequiredArgsConstructor
 public class ApplicationConfig {
     private final ClientRepository repository;
 
-    public ApplicationConfig(ClientRepository repository) {
-        this.repository = repository;
-    }
 
     @Bean
     public UserDetailsService userDetailsService() {

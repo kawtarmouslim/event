@@ -12,7 +12,9 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("api")
+@RequestMapping("/api/v1")
+@CrossOrigin("*")
+
 public class ClientController {
     private  ClientService clientService;
     @PostMapping("client")
@@ -21,16 +23,17 @@ public class ClientController {
       return ResponseEntity.ok(saved);
     }
     @GetMapping("clients")
+
     private ResponseEntity<List<ClientDto>> findAll() {
         List<ClientDto> clients = clientService.findAll();
         return ResponseEntity.ok(clients);
     }
-    @GetMapping("{id}")
+    @GetMapping("client/{id}")
     private ResponseEntity<ClientDto> findById(@PathVariable Long id) {
         ClientDto clientDto = clientService.findById(id);
         return ResponseEntity.ok(clientDto);
     }
-    @DeleteMapping("{id}")
+    @DeleteMapping("client/{id}")
     public ResponseEntity<ClientDto> delete(@PathVariable Long id) {
         clientService.delete(id);
         return ResponseEntity.ok().build();

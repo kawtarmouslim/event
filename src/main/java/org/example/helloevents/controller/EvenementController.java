@@ -10,6 +10,8 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
+@RequestMapping("/api/v1")
+@CrossOrigin("*")
 public class EvenementController {
     private   EvenementService service;
 
@@ -25,7 +27,7 @@ public class EvenementController {
         List<EvenementDto> saved=service.findAll();
         return ResponseEntity.ok(saved);
     }
-    @GetMapping("{id}")
+    @GetMapping("event/{id}")
     public ResponseEntity<EvenementDto> findEvenementById(@PathVariable Long id) {
         EvenementDto evenementDto=service.finById(id);
         return ResponseEntity.ok(evenementDto);

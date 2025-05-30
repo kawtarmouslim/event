@@ -12,12 +12,12 @@ import lombok.NoArgsConstructor;
 public class RegisterRequest {
     private String nom;
     private String email;
-
+    private String password;
     public RegisterRequest(String nom, String email, String password) {
         this.nom = nom;
         this.email = email;
         this.password = password;
     }
 
-    private String password;
+
 }

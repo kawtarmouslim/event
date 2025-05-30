@@ -40,5 +40,12 @@ public class ReservationService {
         dto.setIdEvenement(resrvationDto.getIdEvenement());
         return dto;
     }
+    public Integer findByClientId(Long clientId){
+        Integer nombreReservation=resrvationRepository.findByClientId(clientId);
+        return nombreReservation;
 
+
+
+
+    }
 }
